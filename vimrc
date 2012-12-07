@@ -42,7 +42,6 @@ set directory=~/.vim/_temp//
 
 colorscheme solarized
 
-
 " Make the command :C clear the current search
 " command C let @/=""
 " :command Thtml :%!tidy -q -i -html
@@ -58,6 +57,10 @@ map <leader>n :NERDTreeToggle<CR>
 " D is command key
 map <D-/> <plug>NERDCommenterToggle<CR>
 imap <D-/> <Esc><plug>NERDCommenterToggle<CR>i 
+
+" mappings for janus
+map <D-t> :CtrlP<CR>
+imap <D-t> <ESC>:CtrlP<CR>
 
 " indent mappings borrowed from janus
 vmap <D-]> >gv
@@ -86,6 +89,14 @@ vmap <D-j> ]egv
 
 " cd to the directory containing the file in the buffer
 nmap <silent> <leader>cd :lcd %:h<CR>
+
+" Some helpers to edit mode
+" http://vimcasts.org/e/14
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
 
 if has("statusline") && !&cp
   set laststatus=2  " always show the status bar
