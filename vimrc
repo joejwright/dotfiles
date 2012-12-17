@@ -107,4 +107,5 @@ if has("statusline") && !&cp
   set statusline+=Col:%v
   set statusline+=Buf:#%n
   set statusline+=[%b][0x%B]
+  set statusline+=%=%{fugitive#statusline()}
 endif
