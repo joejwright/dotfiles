@@ -16,6 +16,11 @@ export GEM_EDITOR="mvim"
 
 export EDITOR="mvim"
 
+# Fix for git completion slowness
+__git_files () {
+  _wanted files expl 'local files' _files
+}
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -36,6 +41,9 @@ alias yl='yammer -l'
 
 # filesystem
 alias la='ls -lah'
+
+# phtyon http server
+alias http='python -m SimpleHTTPServer'
 
 
 # Set to this to use case-sensitive completion

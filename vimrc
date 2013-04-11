@@ -2,6 +2,9 @@ call pathogen#infect()
 syntax enable
 filetype plugin indent on
 
+" set 256 colors
+set t_Co=256
+
 " set default font
 set guifont=Monaco:h12
 
@@ -41,6 +44,9 @@ set backupdir=~/.vim/_backup//
 set directory=~/.vim/_temp//
 
 colorscheme solarized
+
+" set leader to comma
+let mapleader=","
 
 " Make the command :C clear the current search
 " command C let @/=""
