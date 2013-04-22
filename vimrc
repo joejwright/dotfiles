@@ -17,6 +17,7 @@ Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
+Bundle 'altercation/vim-colors-solarized'
 
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
@@ -26,6 +27,9 @@ set t_Co=256
 
 " set default font
 set guifont=Monaco:h12
+
+" set dark background
+set background=dark
 
 " turn on line numbers
 set number
