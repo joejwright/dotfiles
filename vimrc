@@ -2,6 +2,25 @@ call pathogen#infect()
 syntax enable
 filetype plugin indent on
 
+" set up vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'ervandew/supertab'
+Bundle 'scrooloose/syntastic'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'skammer/vim-css-color'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-surround'
+
+" let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
 " set 256 colors
 set t_Co=256
 
