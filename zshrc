@@ -29,6 +29,9 @@ __git_files () {
 alias y='yammer -u '
 alias yl='yammer -l'
 
+# remove conflicted files due to dropbox sync issues
+alias rmconflict='find . -name "*conflicted*" -exec rm {} +'
+
 #git aliases
 #alias gst='git status'
 #alias gl='git pull'
