@@ -84,8 +84,10 @@ map <leader>n :NERDTreeToggle<CR>
 
 " map command / to toggle comments
 " D is command key
-map <D-/> <plug>NERDCommenterToggle<CR>
-imap <D-/> <Esc><plug>NERDCommenterToggle<CR>i 
+"map <C-/> <plug>NERDCommenterToggle
+"imap <C-/> <Esc><plug>NERDCommenterToggle i
+map <leader>ct <plug>NERDCommenterToggle
+map <leader>ct <ESC><plug>NERDCommenterToggle i
 
 " mappings for janus
 map <D-t> :CtrlP<CR>
