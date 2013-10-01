@@ -93,15 +93,21 @@ install_dotfiles () {
   done
 }
 
+#install oh-my-zsh
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+
 # create vim directories
 mkdir -p ~/.vim/autoload ~/.vim/bundle;
 mkdir -p ~/.vim/_backup ~/.vim/_temp;
 
+# install vim pathogen
 curl -Sso ~/.vim/autoload/pathogen.vim \
       https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
+#install vim vundle
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
+# run function to symlink all .symlink files
 install_dotfiles
 
 
