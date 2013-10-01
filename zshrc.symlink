@@ -12,9 +12,11 @@ ZSH_THEME="robbyrussell"
 
 export NODE_PATH="/usr/local/lib/node"
 
-export GEM_EDITOR="mvim"
+export GEM_EDITOR="vim"
 
-export EDITOR="mvim"
+export EDITOR="vim"
+
+alias tvim="tab 'vim .'"
 
 # Fix for git completion slowness
 __git_files () {
@@ -24,6 +26,9 @@ __git_files () {
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# use homebrewed installed vim
+
 
 # custom aliases
 alias y='yammer -u '
@@ -75,3 +80,32 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/Users/joewright/.rvm/gems/ruby-1.9.2-p180/bin:/Users/joewright/.rvm/gems/ruby-1.9.2-p180@global/bin:/Users/joewright/.rvm/rubies/ruby-1.9.2-p180/bin:/Users/joewright/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/PalmPDK/bin:/opt/PalmSDK/0.1/bin/:/Users/joewright/bin/Sencha/Cmd/3.1.2.342
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+function tab () {
+local cmd=""
+local cdto="$PWD"
+local args="$@"
+
+if [ -d "$1" ]; then
+  cdto=`cd "$1"; pwd`
+  args="${@:2}"
+fi
+
+if [ -n "$args" ]; then
+  cmd="; $args"
+fi
+
+osascript &>/dev/null <<EOF
+tell application "iTerm"
+tell current terminal
+launch session "Default Session"
+tell the last session
+write text "cd \"$cdto\"$cmd"
+end tell
+end tell
+end tell
+EOF
+                                                                                                                                                                      }
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
