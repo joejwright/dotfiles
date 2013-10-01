@@ -95,6 +95,7 @@ install_dotfiles () {
 
 # create vim directories
 mkdir -p ~/.vim/autoload ~/.vim/bundle;
+mkdir -p ~/.vim/_backup ~/.vim/_temp;
 
 curl -Sso ~/.vim/autoload/pathogen.vim \
       https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
