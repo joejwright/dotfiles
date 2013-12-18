@@ -37,11 +37,9 @@ set -g visual-activity on
 
 # Update default binding of `Enter` to also use copy-pipe
 unbind -t vi-copy Enter
-bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
 
 # Setup 'v' to begin selection as in Vim
 bind-key -t vi-copy v begin-selection
-bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
 
 # act like vim
 setw -g mode-keys vi
@@ -78,3 +76,7 @@ set-window-option -g mode-keys vi
 # force a reload of the config file
 unbind r
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
+
+# load mac config if on mac
+if-shell 'test "$(uname)" = "Darwin"' 'source ~/.tmux-osx.conf'
+
