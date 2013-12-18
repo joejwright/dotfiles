@@ -1,0 +1,18 @@
+[user]
+	name = Joe Wright
+	email = joe.wright@noventech.com
+[core]
+	quotepath = false
+	editor = vim -f
+[push]
+	default = current
+[alias]
+  l = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
+  # Alternate log display from Scott Chacon
+  lol = log --pretty=oneline --abbrev-commit --graph --decorate
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
+
