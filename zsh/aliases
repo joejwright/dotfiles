@@ -1,0 +1,34 @@
+# custom aliases
+alias y='yammer -u '
+alias yl='yammer -l'
+
+# remove conflicted files due to dropbox sync issues
+alias rmconflict='find . -name "*conflicted*" -exec rm {} +'
+
+#git aliases
+#alias gst='git status'
+#alias gl='git pull'
+#alias gp='git push'
+#alias gd='git diff | mate'
+#alias gc='git commit -v'
+#alias gca='git commit -v -a'
+#alias gb='git branch'
+#alias gba='git branch -a'
+
+# filesystem
+alias la='ls -lahG'
+
+# directory
+alias dev='cd ~/Dropbox/Development'
+
+# phtyon http server
+alias http='python -m SimpleHTTPServer'
+
+# aliases for wry ADN cli
+alias wst='wry stream | less'
+alias wgl='wry global | less'
+alias wp='wry post'
+
+# other
+alias aliases='vim ~/dotfiles/zsh/aliases'
+alias so='source ~/dotfiles/zsh/aliases'

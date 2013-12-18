@@ -30,30 +30,6 @@ __git_files () {
 # use homebrewed installed vim
 
 
-# custom aliases
-alias y='yammer -u '
-alias yl='yammer -l'
-
-# remove conflicted files due to dropbox sync issues
-alias rmconflict='find . -name "*conflicted*" -exec rm {} +'
-
-#git aliases
-#alias gst='git status'
-#alias gl='git pull'
-#alias gp='git push'
-#alias gd='git diff | mate'
-#alias gc='git commit -v'
-#alias gca='git commit -v -a'
-#alias gb='git branch'
-#alias gba='git branch -a'
-
-# filesystem
-alias la='ls -lah'
-
-# phtyon http server
-alias http='python -m SimpleHTTPServer'
-
-
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -75,6 +51,9 @@ alias http='python -m SimpleHTTPServer'
 plugins=(git joew)
 
 source $ZSH/oh-my-zsh.sh
+
+# keep aliases in seperate file
+source $HOME/dotfiles/zsh/aliases
 
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/Users/joewright/.rvm/gems/ruby-1.9.2-p180/bin:/Users/joewright/.rvm/gems/ruby-1.9.2-p180@global/bin:/Users/joewright/.rvm/rubies/ruby-1.9.2-p180/bin:/Users/joewright/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/PalmPDK/bin:/opt/PalmSDK/0.1/bin/:/Users/joewright/bin/Sencha/Cmd/3.1.2.342
