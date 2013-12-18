@@ -68,6 +68,9 @@ set directory=~/.vim/_temp//
 
 colorscheme solarized
 
+" use jk instead of escape
+:imap jk <Esc>
+
 " set leader to comma
 let mapleader=","
 
