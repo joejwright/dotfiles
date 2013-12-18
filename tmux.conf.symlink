@@ -1,3 +1,6 @@
+# set default shell
+set-option -g default-shell /bin/zsh
+
 # Use ctrl-a instead of ctrl-b
 set -g prefix C-a
 unbind C-b
