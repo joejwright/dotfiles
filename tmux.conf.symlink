@@ -3,19 +3,45 @@ set -g prefix C-a
 unbind C-b
 bind C-a send-prefix
 
-# set base windows index to 1
+# set base window and pane index to 1
 set -g base-index 1
+set -g pane-base-index 1
 
 # improve colors
 set -g default-terminal "screen-256color"
 
+set -s escape-time 1
+
 # # soften status bar color from harsh green to light gray
-set -g status-bg '#666666'
+#set -g status-bg '#666666'
+set -g status-bg black
 set -g status-fg '#aaaaaa'
 
-# enable copy-paste http://goo.gl/DN82E
-# # enable RubyMotion http://goo.gl/WDlCy
-set -g default-command "reattach-to-user-namespace -l zsh"
+setw -g window-status-fg cyan
+setw -g window-status-bg default
+setw -g window-status-attr dim
+
+setw -g window-status-current-fg white
+setw -g window-status-current-bg red
+setw -g window-status-current-attr bright
+
+set -g message-fg white
+set -g message-bg black
+set -g message-attr bright
+
+# center window list
+set -g status-justify centre
+
+setw -g monitor-activity on
+set -g visual-activity on
+
+# Update default binding of `Enter` to also use copy-pipe
+unbind -t vi-copy Enter
+bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Setup 'v' to begin selection as in Vim
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
 
 # act like vim
 setw -g mode-keys vi
@@ -23,9 +49,32 @@ bind h select-pane -L
 bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
+
 bind-key -r C-h select-window -t :-
 bind-key -r C-l select-window -t :+
 
+# resizing windows with prefix-HJKL
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+# make splitting windows easier
+bind | split-window -h
+bind - split-window -v
+
+unbind [
+bind ` copy-mode
+unbind p
+bind p paste-buffer
+bind-key -t vi-copy 'v' begin-selection # works
+bind-key -t vi-copy 'y' copy-selection # works
+
+# navigate using vim-style keys 
+setw -g mode-keys vi
+# set vi mode 
+set-window-option -g mode-keys vi
+
 # force a reload of the config file
 unbind r
-bind r source-file ~/.tmux.conf
+bind r source-file ~/.tmux.conf \; display "Reloaded!"
