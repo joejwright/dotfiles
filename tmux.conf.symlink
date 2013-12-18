@@ -42,7 +42,7 @@ set -g visual-activity on
 unbind -t vi-copy Enter
 
 # Setup 'v' to begin selection as in Vim
-bind-key -t vi-copy v begin-selection
+#bind-key -t vi-copy v begin-selection
 
 # act like vim
 setw -g mode-keys vi
@@ -64,12 +64,14 @@ bind -r L resize-pane -R 5
 bind | split-window -h
 bind - split-window -v
 
-unbind [
-bind ` copy-mode
-unbind p
-bind p paste-buffer
+#unbind [
+#bind ` copy-mode
 bind-key -t vi-copy 'v' begin-selection # works
 bind-key -t vi-copy 'y' copy-selection # works
+
+# seems like p is bound to paste-buffer
+unbind p
+bind p previous-window
 
 # navigate using vim-style keys 
 setw -g mode-keys vi
