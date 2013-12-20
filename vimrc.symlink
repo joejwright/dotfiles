@@ -78,11 +78,7 @@ let mapleader=","
 map <Leader>ra :%s/
 nmap <Leader>bi :source ~/.vimrc<cr>:BundleInstall<cr>
 map <Leader>gs :Gstatus<CR>
-
-
-" Make the command :C clear the current search
-" command C let @/=""
-" :command Thtml :%!tidy -q -i -html
+map <Leader>gc :Gcommit<CR>
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
@@ -92,46 +88,8 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 map <leader>n :NERDTreeToggle<CR>
 
 " map command / to toggle comments
-" D is command key
-"map <C-/> <plug>NERDCommenterToggle
-"imap <C-/> <Esc><plug>NERDCommenterToggle i
 map <leader>ct <plug>NERDCommenterToggle<cr>
 imap <leader>ct <ESC><plug>NERDCommenterToggle i
-
-" mappings for janus
-map <D-t> :CtrlP<CR>
-imap <D-t> <ESC>:CtrlP<CR>
-
-" indent mappings borrowed from janus
-" these only work on macvim
-vmap <D-]> >gv
-vmap <D-[> <gv
-
-nmap <D-]> >>
-nmap <D-[> <<
-
-omap <D-]> >>
-omap <D-[> <<
-
-imap <D-]> <Esc>>>i
-imap <D-[> <Esc><<i
-
-" reselect after indent
-vnoremap > ><CR>gv
-vnoremap < <<CR>gv
-
-
-" Bubble single lines
-nmap <D-Up> [e
-nmap <D-Down> ]e
-nmap <D-k> [e
-nmap <D-j> ]e
-
-" Bubble multiple lines
-vmap <D-Up> [egv
-vmap <D-Down> ]egv
-vmap <D-k> [egv
-vmap <D-j> ]egv
 
 " cd to the directory containing the file in the buffer
 nmap <silent> <leader>cd :lcd %:h<CR>
@@ -143,6 +101,9 @@ map <leader>ew :e %%
 map <leader>es :sp %%
 map <leader>ev :vsp %%
 map <leader>et :tabe %%
+
+map <C-s> <esc>:w<CR>
+imap <C-s> <esc>:w<CR>
 
 if has("statusline") && !&cp
   set laststatus=2  " always show the status bar
