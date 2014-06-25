@@ -18,6 +18,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-vividchalk'
+Bundle 'mileszs/ack.vim'
 
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
@@ -66,7 +68,7 @@ set listchars+=extends:>
 set backupdir=~/.vim/_backup//
 set directory=~/.vim/_temp//
 
-colorscheme solarized
+colorscheme vividchalk
 
 " use jk instead of escape
 :imap jk <Esc>
@@ -77,12 +79,17 @@ let mapleader=","
 " misc mappings
 map <Leader>ra :%s/
 nmap <Leader>bi :source ~/.vimrc<cr>:BundleInstall<cr>
-map <Leader>gs :Gstatus<CR>
-map <Leader>gc :Gcommit<CR>
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " --- Plugin Key Mappings ---
+"  CtrlP
+map <Leader>r :CtrlP<CR>
+map <Leader>b :CtrlPBuffer<CR>
+
+" Fugitive
+map <Leader>gs :Gstatus<CR>
+map <Leader>gc :Gcommit<CR>
 
 " map leader n to toggle NERDTree
 map <leader>n :NERDTreeToggle<CR>
@@ -90,6 +97,13 @@ map <leader>n :NERDTreeToggle<CR>
 " map command / to toggle comments
 map <leader>ct <plug>NERDCommenterToggle<cr>
 imap <leader>ct <ESC><plug>NERDCommenterToggle i
+
+" run current test
+nnoremap <leader>t :call RunTestFile()<CR>
+nnoremap <leader>T :w\|:silent !tmux send-keys -t bottom C-u 'rspec -f d -t focus' C-m <CR>\|:redraw!<CR>
+
+" function key mappings
+set pastetoggle=<F2>
 
 " cd to the directory containing the file in the buffer
 nmap <silent> <leader>cd :lcd %:h<CR>
@@ -102,8 +116,7 @@ map <leader>es :sp %%
 map <leader>ev :vsp %%
 map <leader>et :tabe %%
 
-map <C-s> <esc>:w<CR>
-imap <C-s> <esc>:w<CR>
+map <leader>tn :tabnew<cr>
 
 if has("statusline") && !&cp
   set laststatus=2  " always show the status bar
@@ -116,3 +129,47 @@ if has("statusline") && !&cp
   set statusline+=[%b][0x%B]
   set statusline+=%=%{fugitive#statusline()}
 endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Running Tests
+" Testing functions borrowed from Gary Berhardt
+" [github.com/garybernhardt/dotfiles/blob/master/.vimrc]
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! RunTestFile(...)
+  if a:0
+      let command_suffix = a:1
+  else
+      let command_suffix = ""
+  endif
+
+  " Run the tests for the previously-marked file.
+  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
+  if in_test_file
+      call SetTestFile()
+  elseif !exists("t:grb_test_file")
+      return
+  end
+  call RunTests(t:grb_test_file . command_suffix)
+endfunction
+
+function! RunNearestTest()
+  let spec_line_number = line('.')
+  call RunTestFile(":" . spec_line_number . " -b")
+endfunction
+
+function! SetTestFile()
+  " Set the spec file that tests will be run for.
+  let t:grb_test_file=@%
+endfunction
+
+" Write the file and run tests for the given filename
+function! RunTests(filename)
+  if match(a:filename, '\.feature$') != -1
+      exec ":silent !tmux send-keys -t bottom 'cucumber -r features " . a:filename . "' C-m"
+      exec ":redraw!"
+  else
+      exec ":silent !tmux send-keys -t bottom 'rspec --color " . a:filename . "' C-m"
+      exec ":redraw!"
+  end
+endfunction
