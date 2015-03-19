@@ -7,27 +7,26 @@ alias rmconflict='find . -name "*conflicted*" -exec rm {} +'
 # rails
 alias dbm='rake db:migrate'
 alias dbr='rake db:rollback'
+alias ss='spring status'
+alias sst='spring stop'
 
 # rvm
 alias ri='rvm info'
 alias rc='rvm current'
 
 # open last migration
-alias lm='ls db/migrate/* | tail -n1 | xargs $EDITOR'
+alias lm='vim $(ls db/migrate/* | tail -n1)'
 
 # filesystem
 alias la='ls -lahG'
+alias hg='history | grep '
 
 # directory
 alias dev='cd ~/Dropbox/Development'
+alias repos='cd ~/Repos/'
 
 # phtyon http server
 alias http='python -m SimpleHTTPServer'
-
-# aliases for wry ADN cli
-alias wst='wry stream | less'
-alias wgl='wry global | less'
-alias wp='wry post'
 
 # other
 alias aliases='vim ~/dotfiles/zsh/aliases'
@@ -39,3 +38,14 @@ alias dokku='ssh -t dokku@digital-ocean-dokku'
 alias tls='tmux ls'
 alias ta='tmux a -t'
 alias tn='tmux new -s'
+
+# git
+alias gl='git log --oneline --decorate --color --graph'
+alias gaa='git add -A'
+alias gcod='git checkout development'
+alias gcos='git checkout staging'
+alias gcom='git checkout master'
+
+# heroku
+alias ds='git push staging staging:master'
+alias dp='git push production master:master'
