@@ -23,6 +23,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-vividchalk'
 Plugin 'mileszs/ack.vim'
 Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-ragtag'
 
 " set 256 colors
 set t_Co=256
@@ -113,7 +114,6 @@ nnoremap <leader>T :w\|:silent !tmux send-keys -t bottom C-u 'rspec -f d -t focu
 
 " function key mappings
 set pastetoggle=<F2>
-set pastetoggle=<leader>p
 
 " cd to the directory containing the file in the buffer
 nmap <silent> <leader>cd :lcd %:h<CR>
