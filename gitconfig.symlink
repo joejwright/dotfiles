@@ -16,3 +16,11 @@
   branch = auto
   ui = true
 
+[filter "media"]
+	clean = git media clean %f
+	smudge = git media smudge %f
+	required = true
+[heroku]
+	account = noventech
+[init]
+	templatedir = /Users/joewright/.git-templates
