@@ -68,11 +68,6 @@ bind - split-window -v
 bind -r < run '~/dotfiles/tmux/swap-windows.sh left'
 bind -r > run '~/dotfiles/tmux/swap-windows.sh right'
 
-#unbind [
-#bind ` copy-mode
-bind-key -t vi-copy 'v' begin-selection # works
-bind-key -t vi-copy 'y' copy-selection # works
-
 # seems like p is bound to paste-buffer
 unbind p
 bind p previous-window
@@ -81,6 +76,14 @@ bind p previous-window
 setw -g mode-keys vi
 # set vi mode 
 set-window-option -g mode-keys vi
+
+# Setup 'v' to begin selection as in Vim
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Update default binding of `Enter` to also use copy-pipe
+unbind -t vi-copy Enter
+bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
 
 # force a reload of the config file
 unbind r
