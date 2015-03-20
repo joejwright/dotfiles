@@ -1,9 +1,9 @@
-call pathogen#infect()
+" call pathogen#infect()
 syntax enable
 filetype plugin indent on
 
 " set up vundle
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle
@@ -24,6 +24,9 @@ Plugin 'tpope/vim-vividchalk'
 Plugin 'mileszs/ack.vim'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-ragtag'
+
+" this must be called when all plugins are loaded
+call vundle#end()
 
 " set 256 colors
 set t_Co=256
