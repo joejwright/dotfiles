@@ -1,6 +1,5 @@
-" call pathogen#infect()
-syntax enable
-filetype plugin indent on
+set nocompatible
+filetype off
 
 " set up vundle
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -27,6 +26,9 @@ Plugin 'tpope/vim-ragtag'
 
 " this must be called when all plugins are loaded
 call vundle#end()
+
+syntax on
+filetype plugin indent on
 
 " set 256 colors
 set t_Co=256
