@@ -46,6 +46,9 @@ alias gcod='git checkout development'
 alias gcos='git checkout staging'
 alias gcom='git checkout master'
 
+alias gmd='git merge development'
+alias gms='git merge staging'
+
 # heroku
 alias ds='git push staging staging:master'
 alias dp='git push production master:master'
