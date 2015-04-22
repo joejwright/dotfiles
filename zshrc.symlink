@@ -52,6 +52,8 @@ export PATH=/usr/local/git/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/b
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:/usr/local/heroku/bin
 
+export GOPATH=$HOME/.go/
+
 function tab () {
 local cmd=""
 local cdto="$PWD"
