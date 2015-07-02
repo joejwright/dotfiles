@@ -6,7 +6,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
@@ -20,6 +20,7 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-vividchalk'
+Plugin 'vim-scripts/vibrantink'
 Plugin 'mileszs/ack.vim'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-ragtag'
@@ -81,7 +82,7 @@ set directory=~/.vim/_temp//
 " set backup
 set backspace=indent,eol,start
 
-colorscheme vividchalk
+colorscheme vibrantink
 
 " use jk instead of escape
 :imap jk <Esc>
