@@ -24,6 +24,7 @@ Plugin 'vim-scripts/vibrantink'
 Plugin 'mileszs/ack.vim'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-ragtag'
+Plugin 'fatih/vim-go'
 
 " this must be called when all plugins are loaded
 call vundle#end()
