@@ -134,6 +134,9 @@ map <leader>ev :vsp %%
 map <leader>et :tabe %%
 
 map <leader>tn :tabnew<cr>
+map <leader>tr :tabm +1<cr>
+map <leader>tl :tabm -1<cr>
+
 
 " allow using + and - for window resizing
 if bufwinnr(1)
