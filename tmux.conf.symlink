@@ -43,7 +43,7 @@ setw -g monitor-activity on
 set -g visual-activity on
 
 # Update default binding of `Enter` to also use copy-pipe
-unbind -t vi-copy Enter
+unbind -T copy-mode-vi Enter
 
 # Setup 'v' to begin selection as in Vim
 #bind-key -t vi-copy v begin-selection
@@ -69,8 +69,8 @@ bind | split-window -h
 bind - split-window -v
 
 # swapping windows
-bind -r < run '~/dotfiles/tmux/swap-windows.sh left'
-bind -r > run '~/dotfiles/tmux/swap-windows.sh right'
+bind -r < swap-window -t -1
+bind -r > swap-window -t +1
 
 # seems like p is bound to paste-buffer
 unbind p
@@ -82,12 +82,18 @@ setw -g mode-keys vi
 set-window-option -g mode-keys vi
 
 # Setup 'v' to begin selection as in Vim
-bind-key -t vi-copy v begin-selection
-bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+#bind-key -T copy-mode-vi v begin-selection
+#bind-key -T copy-mode-vi y copy-pipe "reattach-to-user-namespace pbcopy"
 
 # Update default binding of `Enter` to also use copy-pipe
-unbind -t vi-copy Enter
-bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+#unbind -T copy-mode-vi Enter
+#bind-key -T copy-mode-vi Enter copy-pipe "reattach-to-user-namespace pbcopy"
+
+unbind-key -T copy-mode-vi Space     ;   bind-key -T copy-mode-vi v send-keys -X begin-selection
+unbind-key -T copy-mode-vi Enter     ;   bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+unbind-key -T copy-mode-vi C-v       ;   bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+unbind-key -T copy-mode-vi [         ;   bind-key -T copy-mode-vi [ send-keys -X begin-selection
+unbind-key -T copy-mode-vi ]         ;   bind-key -T copy-mode-vi ] send-keys -X copy-selection
 
 # force a reload of the config file
 unbind r
