@@ -49,13 +49,17 @@ source $ZSH/oh-my-zsh.sh
 
 # keep aliases in seperate file
 source $HOME/dotfiles/zsh/aliases
+source $HOME/dotfiles/zsh/private_aliases
 
 # Customize to your needs...
 #export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/Users/joewright/.rvm/gems/ruby-1.9.2-p180/bin:/Users/joewright/.rvm/gems/ruby-1.9.2-p180@global/bin:/Users/joewright/.rvm/rubies/ruby-1.9.2-p180/bin:/Users/joewright/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/PalmPDK/bin:/opt/PalmSDK/0.1/bin/:/Users/joewright/bin/Sencha/Cmd/3.1.2.342
 export PATH=/usr/local/git/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+#export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/usr/local/heroku/bin
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+#eval "$(rbenv init -)"
 
 $(boot2docker shellinit 2> /dev/null)
 
