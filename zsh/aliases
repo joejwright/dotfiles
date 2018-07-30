@@ -52,3 +52,8 @@ alias gms='git merge staging'
 # heroku
 alias ds='git push staging staging:master'
 alias dp='git push production master:master'
+
+#vagrant
+alias vs='vagrant status'
+alias vssh='vagrant ssh'
+
