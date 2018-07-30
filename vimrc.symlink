@@ -139,6 +139,8 @@ map <leader>tn :tabnew<cr>
 map <leader>tr :tabm +1<cr>
 map <leader>tl :tabm -1<cr>
 
+vmap <C-x> :!pbcopy<CR>
+vmap <C-c> :w !pbcopy<CR><CR>
 
 " allow using + and - for window resizing
 if bufwinnr(1)
