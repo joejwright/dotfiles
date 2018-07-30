@@ -1,6 +1,6 @@
 [user]
 	name = Joe Wright
-	email = joe.wright@noventech.com
+	email = joe@noventech.com
 [core]
 	quotepath = false
 	editor = vim -f
