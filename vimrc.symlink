@@ -142,6 +142,9 @@ map <leader>tl :tabm -1<cr>
 vmap <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
 
+" set syntax for some files
+autocmd BufNewFile,BufRead *.xlsx.axlsx set syntax=ruby
+
 " allow using + and - for window resizing
 if bufwinnr(1)
   map + <C-W>+
