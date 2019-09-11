@@ -26,6 +26,7 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-ragtag'
 Plugin 'fatih/vim-go'
 Plugin 'geoffharcourt/vim-matchit'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " this must be called when all plugins are loaded
 call vundle#end()
