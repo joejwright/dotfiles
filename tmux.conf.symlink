@@ -102,6 +102,9 @@ bind r source-file ~/.tmux.conf \; display "Reloaded!"
 # set up reattach-to-user-namespace
 set-option -g default-command "reattach-to-user-namespace -l zsh"
 
+set-option -g set-titles on
+set-option -g set-titles-string '#S - #W'
+
 # load mac config if on mac
 #if-shell 'test "$(uname)" = "Darwin"' 'source ~/.tmux-osx.conf'
 #if-shell "uname | grep -q Darwin" "source-file ~/.tmux-osx.conf"
