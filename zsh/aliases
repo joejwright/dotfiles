@@ -4,11 +4,16 @@ alias hst='coffee ~/Dropbox/Development/Node/history/history.coffee'
 # remove conflicted files due to dropbox sync issues
 alias rmconflict='find . -name "*conflicted*" -exec rm {} +'
 
+# ssh
+alias sshc='vim ~/.ssh/config'
+
 # rails
 alias dbm='rake db:migrate'
 alias dbr='rake db:rollback'
 alias ss='spring status'
 alias sst='spring stop'
+alias rls='rake -T'
+alias rrg='rake routes | grep '
 
 # rvm
 alias ri='rvm info'
@@ -30,7 +35,7 @@ alias http='python -m SimpleHTTPServer'
 
 # other
 alias aliases='vim ~/dotfiles/zsh/aliases'
-alias so='source ~/dotfiles/zsh/aliases'
+alias sa='source ~/dotfiles/zsh/aliases'
 
 alias dokku='ssh -t dokku@digital-ocean-dokku'
 
